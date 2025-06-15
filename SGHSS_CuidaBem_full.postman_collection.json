@@ -190,13 +190,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}/pacientes/{id}",
+							"raw": "{{base_url}}/pacientes/1",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"pacientes",
-								"{id}"
+								"1"
 							]
 						},
 						"description": "Detalha um paciente"
@@ -1543,6 +1543,11 @@
 		{
 			"key": "base_url",
 			"value": "http://cuidabem:8080",
+			"type": "default"
+		},
+		{
+			"key": "jwt_token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnb3Zlcm5hbmNhLWFwaSIsInN1YiI6MiwiaWF0IjoxNzQ5OTkxMTE1LCJleHAiOjE3NDk5OTQ3MTUsInVzZXJuYW1lIjpudWxsfQ.DrncZq6iRmEL27uMoYl75M81dCRBbhKGiSD864l5Rrw",
 			"type": "default"
 		}
 	]

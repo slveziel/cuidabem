@@ -21,6 +21,7 @@ class ComposerStaticInitf04a842d0a57b433030430d3b12b853f
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
+        '2df68f9e79c919e2d88506611769ed2e' => __DIR__ . '/..' . '/respect/stringifier/src/stringify.php',
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -56,6 +57,11 @@ class ComposerStaticInitf04a842d0a57b433030430d3b12b853f
             'Symfony\\Component\\Clock\\' => 24,
             'Slim\\Psr7\\' => 10,
             'Slim\\' => 5,
+        ),
+        'R' => 
+        array (
+            'Respect\\Validation\\' => 19,
+            'Respect\\Stringifier\\' => 20,
         ),
         'P' => 
         array (
@@ -181,6 +187,14 @@ class ComposerStaticInitf04a842d0a57b433030430d3b12b853f
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Respect\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/respect/validation/library',
+        ),
+        'Respect\\Stringifier\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/respect/stringifier/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (

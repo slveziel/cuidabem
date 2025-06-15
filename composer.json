@@ -20,6 +20,7 @@
         "larapack/dd": "^1.1",
         "monolog/monolog": "^2.8",
         "php-di/php-di": "^7.0",
+        "respect/validation": "^2.4",
         "slim/psr7": "^1.5",
         "slim/slim": "^4.10"
     },

@@ -12,7 +12,7 @@ final class GeneratedConfig
 	public const EXTENSIONS = array (
   'jangregor/phpstan-prophecy' => 
   array (
-    'install_path' => '/mnt/wrk/php/infinity/governancahotel-api/vendor/jangregor/phpstan-prophecy',
+    'install_path' => '/mnt/wrk/php/uninter/cuidabem/vendor/jangregor/phpstan-prophecy',
     'relative_install_path' => '../../../jangregor/phpstan-prophecy',
     'extra' => 
     array (
@@ -26,7 +26,7 @@ final class GeneratedConfig
   ),
   'nesbot/carbon' => 
   array (
-    'install_path' => '/mnt/wrk/php/infinity/governancahotel-api/vendor/nesbot/carbon',
+    'install_path' => '/mnt/wrk/php/uninter/cuidabem/vendor/nesbot/carbon',
     'relative_install_path' => '../../../nesbot/carbon',
     'extra' => 
     array (
