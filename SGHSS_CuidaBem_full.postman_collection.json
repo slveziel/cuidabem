@@ -1,0 +1,1549 @@
+{
+	"info": {
+		"_postman_id": "274aaa47-25a0-478d-881e-99c52cf9bdc6",
+		"name": "SGHSS - CuidaBem",
+		"description": "Coleção de rotas RESTful do Sistema de Gestão Hospitalar e de Serviços de Saúde (SGHSS) da VidaPlus.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "POST /login/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"master\",\n    \"password\": \"master5512\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/login/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login",
+								"login"
+							]
+						},
+						"description": "Autentica usuário e retorna um token"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /auth/logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/logout",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						},
+						"description": "Invalida o token do usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /auth/me",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/auth/me",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"me"
+							]
+						},
+						"description": "Retorna os dados do usuário logado"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /login/test-token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/login/test-token",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"login",
+								"test-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pacientes",
+			"item": [
+				{
+					"name": "GET /pacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pacientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						},
+						"description": "Lista todos os pacientes"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /pacientes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pacientes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pacientes"
+							]
+						},
+						"description": "Cadastra um novo paciente"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /pacientes/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pacientes/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pacientes",
+								"{id}"
+							]
+						},
+						"description": "Detalha um paciente"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /pacientes/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pacientes/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pacientes",
+								"{id}"
+							]
+						},
+						"description": "Atualiza dados de um paciente"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /pacientes/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/pacientes/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"pacientes",
+								"{id}"
+							]
+						},
+						"description": "Remove (ou desativa) um paciente"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Consultas",
+			"item": [
+				{
+					"name": "GET /consultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consultas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consultas"
+							]
+						},
+						"description": "Lista todas as consultas"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /consultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consultas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consultas"
+							]
+						},
+						"description": "Agenda nova consulta"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /consultas/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consultas/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consultas",
+								"{id}"
+							]
+						},
+						"description": "Detalha uma consulta"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /consultas/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consultas/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consultas",
+								"{id}"
+							]
+						},
+						"description": "Atualiza dados da consulta"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /consultas/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/consultas/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"consultas",
+								"{id}"
+							]
+						},
+						"description": "Cancela a consulta"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profissionais de Saúde",
+			"item": [
+				{
+					"name": "GET /profissionais",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profissionais",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profissionais"
+							]
+						},
+						"description": "Lista todos os profissionais de saúde"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /profissionais",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profissionais",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profissionais"
+							]
+						},
+						"description": "Cadastra novo profissional"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /profissionais/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profissionais/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profissionais",
+								"{id}"
+							]
+						},
+						"description": "Detalha um profissional"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /profissionais/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profissionais/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profissionais",
+								"{id}"
+							]
+						},
+						"description": "Atualiza dados do profissional"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /profissionais/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/profissionais/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"profissionais",
+								"{id}"
+							]
+						},
+						"description": "Remove ou desativa profissional"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Agendas",
+			"item": [
+				{
+					"name": "GET /agendas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agendas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agendas"
+							]
+						},
+						"description": "Lista agendas de profissionais"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /agendas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agendas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agendas"
+							]
+						},
+						"description": "Cria nova agenda"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /agendas/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agendas/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agendas",
+								"{id}"
+							]
+						},
+						"description": "Detalha agenda"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /agendas/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/agendas/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"agendas",
+								"{id}"
+							]
+						},
+						"description": "Atualiza agenda"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Exames",
+			"item": [
+				{
+					"name": "GET /exames",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/exames",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exames"
+							]
+						},
+						"description": "Lista exames"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /exames",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/exames",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exames"
+							]
+						},
+						"description": "Solicita novo exame"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /exames/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/exames/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exames",
+								"{id}"
+							]
+						},
+						"description": "Detalha exame"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /exames/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/exames/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"exames",
+								"{id}"
+							]
+						},
+						"description": "Atualiza ou insere resultado"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prontuários",
+			"item": [
+				{
+					"name": "GET /prontuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prontuarios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prontuarios"
+							]
+						},
+						"description": "Lista prontuários"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /prontuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prontuarios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prontuarios"
+							]
+						},
+						"description": "Cria novo prontuário"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /prontuarios/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prontuarios/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prontuarios",
+								"{id}"
+							]
+						},
+						"description": "Detalha prontuário"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /prontuarios/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prontuarios/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prontuarios",
+								"{id}"
+							]
+						},
+						"description": "Atualiza prontuário"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prescrições",
+			"item": [
+				{
+					"name": "GET /prescricoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prescricoes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prescricoes"
+							]
+						},
+						"description": "Lista prescrições"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /prescricoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prescricoes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prescricoes"
+							]
+						},
+						"description": "Cria nova prescrição"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /prescricoes/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/prescricoes/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"prescricoes",
+								"{id}"
+							]
+						},
+						"description": "Detalha prescrição"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leitos",
+			"item": [
+				{
+					"name": "GET /leitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/leitos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leitos"
+							]
+						},
+						"description": "Lista leitos hospitalares"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /leitos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/leitos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leitos"
+							]
+						},
+						"description": "Cadastra novo leito"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /leitos/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/leitos/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leitos",
+								"{id}"
+							]
+						},
+						"description": "Atualiza leito"
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /leitos/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/leitos/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"leitos",
+								"{id}"
+							]
+						},
+						"description": "Remove leito"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Financeiro",
+			"item": [
+				{
+					"name": "GET /financeiro/relatorios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/financeiro/relatorios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"financeiro",
+								"relatorios"
+							]
+						},
+						"description": "Relatórios financeiros"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /financeiro/movimentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/financeiro/movimentos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"financeiro",
+								"movimentos"
+							]
+						},
+						"description": "Lista movimentações"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /financeiro/lancamentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/financeiro/lancamentos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"financeiro",
+								"lancamentos"
+							]
+						},
+						"description": "Novo lançamento financeiro"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Suprimentos",
+			"item": [
+				{
+					"name": "GET /suprimentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/suprimentos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suprimentos"
+							]
+						},
+						"description": "Lista suprimentos"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /suprimentos",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/suprimentos",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suprimentos"
+							]
+						},
+						"description": "Cadastra item de suprimento"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /suprimentos/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/suprimentos/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"suprimentos",
+								"{id}"
+							]
+						},
+						"description": "Atualiza suprimento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Telemedicina",
+			"item": [
+				{
+					"name": "GET /telemedicina/consultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/telemedicina/consultas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"telemedicina",
+								"consultas"
+							]
+						},
+						"description": "Lista consultas online"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /telemedicina/consultas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/telemedicina/consultas",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"telemedicina",
+								"consultas"
+							]
+						},
+						"description": "Agenda consulta online"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /telemedicina/prescricoes",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/telemedicina/prescricoes",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"telemedicina",
+								"prescricoes"
+							]
+						},
+						"description": "Prescrição online"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Segurança e Compliance",
+			"item": [
+				{
+					"name": "GET /usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/usuarios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Lista usuários do sistema"
+					},
+					"response": []
+				},
+				{
+					"name": "POST /usuarios",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/usuarios",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"usuarios"
+							]
+						},
+						"description": "Cadastra novo usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT /usuarios/{id}",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/usuarios/{id}",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"usuarios",
+								"{id}"
+							]
+						},
+						"description": "Atualiza dados do usuário"
+					},
+					"response": []
+				},
+				{
+					"name": "GET /logs/auditoria",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/logs/auditoria",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"logs",
+								"auditoria"
+							]
+						},
+						"description": "Consulta logs de auditoria"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://cuidabem:8080",
+			"type": "default"
+		}
+	]
+}

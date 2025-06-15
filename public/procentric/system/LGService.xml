@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service>
+  <version>1.0.2</version>
+  <appList>
+    <app>
+      <name>iHospitality</name>
+      <appType>IPK</appType>
+      <autoUpdate>TRUE</autoUpdate>
+      <visible>TRUE</visible>
+      <startMode>AUTO</startMode>
+      <ipkUrl>http://96.126.120.87/procentric/system/webos.ipk</ipkUrl>
+      <version>1.0.0</version>
+    </app>
+  </appList>
+</service>
+

@@ -1,0 +1,19 @@
+volumes:
+    logs:
+        driver: local
+
+services:
+    slim:
+        build:
+          context: .
+          dockerfile: Dockerfile
+        container_name: cuidabem-api
+        working_dir: /var/www
+        environment:
+            docker: "true"
+        ports:
+            - "8080:80"
+        volumes:
+            - .:/var/www/html
+            - logs:/var/www/logs
+            - ./certbot/conf:/etc/letsencrypt
